@@ -111,6 +111,20 @@ chunk([1,2,3,4,5,6,7], 3)
 
 
 
+--CAP
+
+function cap(str) { 
+    
+    const words = [] 
+    
+    for (let word of str.split(' ')) { 
+     words.push(word[0].toUpperCase() + word.slice(1))   
+    }    
+    console.log(words.join(' '))
+}
+ 
+ 
+ cap('i am very well')
 
 
 
