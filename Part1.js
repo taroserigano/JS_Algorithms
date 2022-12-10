@@ -126,6 +126,41 @@ function cap(str) {
  
  cap('i am very well')
 
+-- STEPS
+
+function steps(n) {
+
+    for (let i = 0; i < n; i++){
+        let stair ="" 
+        
+    for(let j = 0; j <= i;  j++){
+        stair += "#"
+    }
+    
+    console.log(stair)
+}
+}
+
+steps(5)
+
+-- PYRAMID 
+
+function pyr(n) {
+    for (let i = 0; i < n; i++) { 
+     let str = ""
+     for (let j = 1; j < n-i; j++){
+         str = str + ' ' 
+     }
+     for (let k = 1; k <= (i * 2 + 1); k++){
+     str += '*'
+    }
+    console.log(str)
+}
+}
+
+pyr(5)
+
+
 
 
 
