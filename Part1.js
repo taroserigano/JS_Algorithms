@@ -161,6 +161,87 @@ function pyr(n) {
 pyr(5)
 
 
+-- VOWELS 
+
+
+function vowels(str) { 
+    
+ let count = 0 
+ const checker = ['a', 'e', 'i', 'u', 'o'] 
+ 
+ for (let s of str.toLowerCase() ) { 
+   if (checker.includes(s)){
+       count++
+   }   
+ }
+    console.log(count)
+}
+
+vowels("this is so great")
+
+
+--SPIRAL MATRIX 
+
+function matrix(n) {
+  const res = [];
+
+  for (let i = 0; i < n; i++) {
+    res.push([]);
+  }
+
+  let count = 1;
+  let left = 0;
+  let right = n;
+  let top = 0;
+  let bottom = n;
+  while (left < right && top < bottom) {
+    // Top row
+    for (let i = left; i < right; i++) {
+      res[top][i] = count;
+      count++;
+    }
+    top++;
+
+    // Right column
+    for (let i = top; i < bottom; i++) {
+      res[i][right-1] = count;
+      count++;
+    }
+    right--;
+    
+    
+
+    // Bottom row
+    for (let i = right-1; i > left-1; i--) {
+      res[bottom-1][i] = count;
+      count++;
+    }
+    bottom--;
+
+    // start column
+    for (let i = bottom-1; i > top-1; i--) {
+      res[i][left] = count;
+      count++;
+    }
+    left++;
+  }
+
+  console.log(res);
+}
+
+matrix(3)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
