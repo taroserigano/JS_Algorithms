@@ -15,12 +15,9 @@ reverse("abcde")
 --PALINDROME 
 
 function palid(str) { 
-// const reversed = str.split('').reverse().join('') 
-// console.log(reversed == str) 
-    for ( let i=0; i < str.length / 2; i++) { 
-        if (str[i] !== str[str.length-1 -i]){
-            console.log(" not valid")
-        }       
+const reversed = str.split('').reverse().join('') 
+console.log(reversed == str) 
+    
 }
 console.log("palindrome")
 } 
@@ -53,11 +50,7 @@ function maxChar(str) {
     let res = '';
   
     for (let char of str) {
-      if (!map[char]) {
-        map[char] = 1;
-      } else {
-        map[char]++;
-      }
+      map[char] = map[char] +1 || 1 
     }
   
     for (let char in map) {
@@ -149,7 +142,7 @@ function pyr(n) {
     for (let i = 0; i < n; i++) { 
      let str = ""
      for (let j = 1; j < n-i; j++){
-         str = str + ' ' 
+         str += ' ' 
      }
      for (let k = 1; k <= (i * 2 + 1); k++){
      str += '*'
@@ -241,6 +234,10 @@ return n
 
 return fib(n-1) + fib(n-2)
 } 
+
+
+
+
 
 
 
