@@ -1,3 +1,52 @@
-yes
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+let str = "Write, Edit and Run your Javascript code using JS Online Compiler" 
+
+const long = (s) => { 
+s = s.split(" ") 
+let max = 0
+let res = ""
+for(let w of s){
+    if(w.length > max){
+        res = w 
+        max = w.length 
+    }
+}
+
+return res
+    
+}
+
+console.log(long(str));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
