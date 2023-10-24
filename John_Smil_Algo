@@ -49,6 +49,67 @@ console.log(counter(arr));
 
 -----------
 
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+let str = "I am very cool and cold"
+
+function long(str) {
+    let words = str.split(' ');
+    let res = [];
+    let size = 0;
+
+    for (let i = 0; i < words.length; i++) {
+
+        let word = words[i];
+        if (word.length > size) {
+            size = word.length;
+            res = [word];
+        } else if (word.length === size) {
+            res.push(word) // res = [...res, word];
+        }
+    }
+
+    return [...res];
+
+}
+
+console.log(long(str));
+
+
+----------
+
+array sum === sum 
+
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+let arr = [1,2,3,4,10]
+
+function sol(arr) {
+    
+    arr.sort((a,b) => a-b)
+    let last = arr.pop() 
+    
+    let sum = arr.reduce((a,b) => a+b)
+    return sum === last ? true : false 
+
+}
+
+console.log(sol(arr));
+
+
+-----------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
