@@ -22,6 +22,37 @@ console.log(long(str));
 
 
 
+---------
+
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+let arr = [2,4,8] 
+
+const counter = (arr) => { 
+let arith = new Set() 
+let geo = new Set() 
+
+for(let i=1; i < arr.length;i++){
+
+arith.add(arr[i] - arr[i-1])
+geo.add(arr[i] / arr[i-1])
+}
+
+if(arith.size === 1) return "arith" 
+if(geo.size === 1) return "geo"
+    
+}
+
+console.log(counter(arr));
+
+
+-----------
+
+
+
+
+
 
 
 
