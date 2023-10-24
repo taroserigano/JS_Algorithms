@@ -162,6 +162,143 @@ console.log(sol([1,2,3,4,1]))
 
 ----------------------------
 
+2nd from beg and last 
+
+let arr = [6,5,4,3,2,1,2,3,4] 
+
+const sec = (arr) => { 
+
+let vals = [...new Set(arr)].sort((a,b) => a - b) 
+
+console.log(vals)
+
+if(vals.length < 2){
+    return vals[0]
+} else if(vals.length === 2){
+    return [vals[0], vals[1]]
+} else{ 
+    return [vals[1], vals[vals.length-2] ]
+}  
+    
+}
+
+
+console.log(sec(arr))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------
+
+prime
+
+
+const isPrime = (n) => { 
+ if(n < 2) return false 
+ 
+ let root = Math.ceil(Math.sqrt(n)) 
+
+ 
+ for(let i=2; i<=root;i++){
+     if(n % i === 0) 
+        return false 
+ }
+    return true 
+}
+
+
+console.log(isPrime(11))
+
+
+
+---------------------------
+
+count chars
+
+
+const count = (n) => { 
+
+    n = n.split('') 
+    let res = [] 
+    let count = 1 
+    let prev = ""
+    
+    for(let s of n){
+        if(s === prev){
+            count++
+        } else{
+            res += `${count}${s}` 
+            count = 1 
+            prev = s 
+        }
+    }
+    return res 
+    
+}
+
+
+console.log(count('aaabbbccccdd'))
+
+-----------------------------
+
+PALindrome
+
+let s = "was it a car or a cats I saw" 
+const pal = (s) => { 
+let one = s.match(/[a-z0-9]/gi).join('').toLowerCase() 
+
+
+console.log(one) 
+
+for(let i=0;i<one.length/2;i++){
+    console.log(one[i], one[one.length-i-1])
+    if(one[i] !== one[one.length-1-i]) return false
+}
+return true
+
+
+let sec = one.split('').reverse().join('') 
+
+return one === sec
+
+} 
+
+console.log(pal(s))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
