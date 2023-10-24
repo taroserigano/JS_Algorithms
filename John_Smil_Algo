@@ -101,6 +101,68 @@ console.log(sol(arr));
 
 -----------------------------------
 
+repeating nums in array 
+
+function testRepeat(arr) {
+    let mapNum = arr.reduce((acc, curr) => {
+        if (acc.has(curr)) {
+            acc.set(curr, acc.get(curr) + 1);
+        } else {
+            acc.set(curr, 1);
+        }
+        return acc;
+    }, new Map());
+    let result = { max: 1, number: -1 };
+    mapNum.forEach((value, key) => {
+        if (value > result.max) {
+            result.max = value;
+            result.number = key;
+        }
+    });
+    return result.number;
+}
+
+const sol = arr => { 
+
+    let map = arr.reduce((acc, cur) => { 
+        
+        acc.set(cur, (acc.get(cur) || 0) + 1)
+        
+        return acc
+    }, new Map())    
+    
+    console.log(map)
+    
+    let res = -1  
+    let max = 1
+    
+    // map.forEach((val, key) => { 
+    //     console.log(val)
+    //     if(val > max){
+    //         max = val 
+    //         res = key 
+    //     }
+    // })
+    for(let [k, v] of map.entries()){
+        console.log(k, v)
+        if(v > max){
+            max = v
+            res = k
+        }
+    }
+    
+    return res
+}
+
+
+
+console.log(sol([1,2,3,4,1]))
+
+
+
+----------------------------
+
+
 
 
 
