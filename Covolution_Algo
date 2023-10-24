@@ -1,0 +1,115 @@
+
+
+const fib = (n) =>{ 
+ 
+ const res = [0, 1] 
+ 
+ for(let i=2;i<=n;i++){
+     res[i] = res[i-1] + res[i-2] 
+ }
+ 
+ return res[n]
+}
+
+console.log(fib(7))
+
+
+const fib = n => { 
+
+if(n === 0) return 1 
+
+return n * fib(n-1) 
+} 
+
+
+-------------------------------------
+
+
+factorial 
+
+
+
+const sol = (n) =>{ 
+    
+    let res = 1 
+    
+    for(let i=2; i <= n; i++){
+        res = res * i
+    }
+    return res
+
+}
+
+console.log(sol(7))
+
+
+-------------------------------------
+
+const powerofTwo = n => { 
+
+if(n <1) return false 
+
+while(n > 1) { 
+if(n % 2 !== 0) { 
+return false 
+}
+n /= 2 
+} 
+return true 
+} 
+
+
+---------------------------------------------------
+
+climbing stairs 
+
+const climb = n => { 
+
+const ways = [1,2] 
+
+for(let i=2; i <= n; i++){ 
+ways[i] = ways[i-1] + ways[i-2] 
+}
+return ways[n-1] 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
