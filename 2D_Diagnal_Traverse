@@ -1,6 +1,6 @@
-let arr = [['s','o','s'],
-            ['s','o','s'],
-            ['s','o','s']]
+let arr = [['s','s','o','s'],
+            ['s','o','s','s'],
+            ['s','o','s','s']]
 
 s="sos"
 
@@ -34,12 +34,20 @@ for(let i=0; i < arr.length;i++){
 
 tmp = ""
 
+console.log("downdddd")
+
 // side -> 
 for(let i=0; i < arr[0].length;i++){
     
     tmp += arr[0][i]
     console.log(arr[0][i], tmp)
-    if(tmp === s) res++ 
+    if(tmp === s) res++
+    
+    else if(tmp.length == s.length){
+        console.log(tmp + " be slice")
+        tmp = tmp.substring(1)
+    }
+    console.log(tmp + " hi ")
 
 }
 
