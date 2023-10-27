@@ -1,3 +1,57 @@
+let arr = [['s','o','s'],
+            ['s','o','s'],
+            ['s','o','s']]
+
+s="sos"
+
+console.log(arr)
+
+const sol = (arr, s) => {
+
+let res =0 
+let tmp = ""
+
+// diag 
+for(let i=0; i < arr.length;i++){
+    
+    tmp += arr[i][i]  
+    console.log(i, i, tmp)
+    if(tmp === s) res++ 
+
+}
+
+tmp = "" 
+
+// down 
+for(let i=0; i < arr.length;i++){
+    
+
+    tmp += arr[i][0]  
+    console.log(arr[i][0], tmp)
+    if(tmp === s) res++ 
+
+}
+
+tmp = ""
+
+// side -> 
+for(let i=0; i < arr[0].length;i++){
+    
+    tmp += arr[0][i]
+    console.log(arr[0][i], tmp)
+    if(tmp === s) res++ 
+
+}
+
+return res
+
+}
+
+console.log(sol(arr, s));
+
+---------------------------------
+
+
 let arr = [[1,2,3],
             [4,5,6],
             [7,8,9]]
