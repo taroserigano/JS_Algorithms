@@ -166,7 +166,140 @@ class BrowserHistory {
   }
 }
 
+--------------------------
 
+  // Approach 1 - Recursion
+// Time: O(2^n)
+// Space: O(n)
+function fib(n) {
+  if (n < 2) return n;
+  return fib(n-1) + fib(n-2);
+}
+
+/**
+* Rcursion with memo
+*/
+function fib(n, memo={}){
+  if(n < 2) return n 
+
+  if(!memo[n]) {
+    memo[n] = fib(n-1, memo) + fib(n-2, memo)
+  }  
+
+  // memo[n]??= fib(n-1, memo) + fib(n-2, memo)   // if doesn't exist 
+  
+  return memo[n] 
+}
+
+---------------------------------
+
+
+/**
+ * @param {string} str
+ * @return {string}
+ */
+function compress(str) {
+  const res = [];
+  let count = 0;
+  
+  for (let i = 0; i < str.length; i++) {
+    count++;
+    if (str[i] !== str[i+1]) {
+      res.push(str[i]);
+      if (count > 1) res.push(count); 
+      count = 0;
+    }
+  }
+  return res.join('');
+}
+
+
+------------------------
+
+  function hasCircle(head) {
+  // fast slow pointer
+  let fast = head
+  let slow = head
+
+  while (fast && slow) {
+    fast = fast.next?.next
+    slow = slow.next
+
+    if (fast === slow) {
+      return true
+    }
+  }
+
+  return false
+} 
+
+-----------------
+
+function flatten(root) {
+  const result = [];
+  if (!root) {
+    return result;
+  }
+  const queue = [root];
+  while (queue.length) {
+    const node = queue.shift();
+    result.push(node);
+    for (const child of node.children) {
+      queue.push(child);
+    }
+  }
+  return result;
+} 
+
+----
+
+  /**
+ * @param {number[]} arr
+ * @return {number}
+ */
+function largestDiff(arr) {
+  // your code here
+  if(arr.length < 2) return 0 
+
+  let min = Infinity 
+  let max = -Infinity 
+
+  for(let i=0; i < arr.length;i++){ 
+    min = Math.min(arr[i], min) 
+    max = Math.max(arr[i], max) 
+  }
+
+  return Math.abs(max - min)
+}
+
+------
+
+  function countPalindromicSubstr(str) {
+   let countPal = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        expand(i, i) // odd palindrome
+        expand(i, i + 1) // even palindrome
+    }
+
+    function expand(left, right) {
+        while (left >= 0 && str[left] === str[right]) {
+            countPal++;
+            left--;
+            right++;
+        }
+    }
+
+    return countPal;
+}
+
+-----------------------------
+
+  
+
+
+  
+  
 
   
 
