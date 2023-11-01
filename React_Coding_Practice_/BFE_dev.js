@@ -115,6 +115,127 @@ export function useHover<T extends HTMLElement>(): [Ref<T | undefined>, boolean]
 }
 
 
+7.
+import { useState } from 'react';
+
+export function useToggle(on: boolean): [boolean, () => void] {
+  const [toggle, setToggle] = useState(on);
+  const toggleHandler = () => setToggle(prevState => !prevState);
+
+  return [toggle, toggleHandler]
+}
+
+
+
+8. 
+
+import { useState, useEffect } from 'react';
+
+export function useDebounce<T>(value: T, delay: number): T {
+  const [debounced, setDebounced] = useState(value)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebounced(value)
+    }, delay);
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [value, delay])
+
+  return debounced
+}
+
+
+
+
+9. 
+
+import { EffectCallback, useEffect } from 'react'
+
+export function useEffectOnce(effect: EffectCallback) {
+  // your code here
+  useEffect(effect, [])
+}
+
+10. 
+
+import { useState, useCallback, useMemo } from 'react'
+
+type UseArrayActions<T> = {
+  push: (item: T) => void,
+  removeByIndex: (index: number) => void
+}
+
+export function useArray<T>(initialValue: T[]): { value: T[] } & UseArrayActions<T> {
+  const [value, setValue] = useState<T[]>(initialValue);
+
+  const push = useCallback((item: T) => setValue((prev) => [...prev, item]), []);
+  const removeByIndex = useCallback((index: number) => setValue((prev) => {
+    const copy = prev.slice();
+    copy.splice(index, 1);
+    return copy;
+  }), []);
+
+  return useMemo(() => ({ value, push, removeByIndex }), [value, push, removeByIndex]);
+}
+
+
+11. 
+
+import React, { useRef, useEffect } from 'react';
+
+export function useIsMounted(): () => boolean {
+  // your code here
+  const isMountedRef = useRef(false);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    }
+  }, [])
+
+  return () => isMountedRef.current;
+}
+
+14. 
+
+
+
+// This is a React coding question from BFE.dev
+
+import React,{useEffect, useRef}  from 'react'
+
+export function useClickOutside(callback: () => void) {
+  // your code here
+    const ref = useRef<any>(null)
+    useEffect(() => {
+    const click = ({ target }: Event): void => {
+      if (target && ref.current && !ref.current.contains(target as Node)) {
+        callback()
+      }
+    }
+
+    document.addEventListener('mousedown', click)
+    
+    return () => {
+      document.removeEventListener('mousedown', click)
+    }
+  }, [])
+
+  return ref
+}
+
+// to try your code on the right panel
+// export App() component like below
+
+// export function App() {
+//   return <div>your app</div>
+// }
+
+
 
 
 
