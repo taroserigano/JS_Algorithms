@@ -297,7 +297,72 @@ function largestDiff(arr) {
 
   
 
+function count(str){
+  const map = new Map();
+  const result = [];
 
+  for(const char of str) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
+
+  const max = Math.max(...map.values());
+  console.log(max)
+
+  for(const [key, value] of map) {
+    if(value === max) {
+      result.push(key);
+    }
+  }
+
+  return result.length === 1 ? result[0] : result;
+}
+
+
+------------
+
+
+function removeChars(input) {
+  // your code here
+  while(input.match(/b|(ac)/g)) {
+    input = input.replace(/b|(ac)/g, '') 
+  }
+  return input 
+}
+
+
+----------------
+
+function getIntersection(arr1, arr2) {
+  // your code here
+  const newArr = arr1.filter(it => arr2.includes(it));
+  return [...new Set(newArr)];
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
   
 
