@@ -70,7 +70,46 @@ var removeDuplicateLetters = function(s) {
     }
 
 
+/**
+Input: s = "leet2code3", k = 10
+Output: "o"
+Explanation: The decoded string is "leetleetcodeleetleetcodeleetleetcode".
+The 10th letter in the string is "o".
+ */
 
+var decodeAtIndex = function(s, k) {
+    
+    let count = 0;
+
+    for (let i = 0; i < s.length; i++) {
+
+        // if it's a number, multiply 
+        if (!isNaN(s[i])) count *= Number(s[i])
+
+        // char, add 1 
+        else count++
+    }
+   
+    // divide by numbers like 36 -> 12 -> 11 -> 10 
+    for (let i = s.length - 1; i >= 0; i--) {
+        
+        // when count hits 10, k = 0 
+        k = k % count;
+
+        // not a number 
+        if (k == 0 && isNaN(s[i])) return s[i]
+        
+        // number found, divide 
+        if (!isNaN(s[i])) count = Math.ceil(count / Number(s[i]))
+        
+        // char found 
+        else count--;
+    }
+};
+
+----------------------------
+
+    
 
 
 
