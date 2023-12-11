@@ -63,6 +63,50 @@ export function useIsFirstRender(): boolean {
 //   return <div>your app</div>
 // }
 
+SWR - 
+
+  import {useEffect, useState} from 'react'
+export function useSWR<T = any, E = any>(
+  _key: string,
+  fetcher: () => T | Promise<T>
+): {
+  data?: T
+  error?: E
+} {
+  // your code here
+
+  const [data, setData] = useState<T>() 
+  const [error, setError] = useState<E>() 
+  
+  useEffect(()=>{ 
+    const fetchData = async() => { 
+      try{ 
+        const response = await fetcher() 
+        setData(response) 
+      } catch(err){
+        setError(err)
+      }
+    }
+    // if fetched result is Promise type, 
+    if(fetcher() instanceof Promise) 
+    fetchData()
+  }, [])
+
+  const result = fetcher() instanceof Promise ? data : fetcher();
+  return { data: result, error };
+
+
+}
+
+// if you want to try your code on the right panel
+// remember to export App() component like below
+
+// export function App() {
+//   return <div>your app</div>
+// }
+
+
+
 
 
 
