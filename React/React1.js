@@ -38,71 +38,63 @@ const Stopwatch = () => {
 
 export default Stopwatch;
 
+------------------
 
+  import React, { useState } from "react";
 
+export default function App() {
+  const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
 
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
 
-
-
-
-
-
-import React, { useState } from "react";
-
-function TodoList() {
-  const [inputTask, setInputTask] = useState("");
-  const [list, setList] = useState([]);
-
-  const handleAddTodo = () => {
-    const newTask = {
+  const addTodo = () => {
+    const newTodo = {
       id: Math.random(),
-      todo: inputTask,
+      todo: input,
     };
-
-    setList([...list, newTask]);
-    setInputTask("");
+    setTodos([...todos, newTodo]);
   };
 
-  const handleDeleteTodo = (id) => {
-    const newList = list.filter((todo) => todo.id !== id);
-    setList(newList);
-  };
-
-  const handleInputChange = (event) => {
-    setInputTask(event.target.value);
+  const deleteTodo = (id) => {
+    const newList = todos.filter((todo) => todo.id !== id);
+    setTodos(newList);
   };
 
   return (
-    <div className="Todo">
-      <h1>My To-Do List</h1>
-
-      <div className="Top">
-        <input
-          className="input"
-          type="text"
-          value={inputTask}
-          onChange={handleInputChange}
-          placeholder="Enter a task"
-        />
-
-        <button className="btn" onClick={handleAddTodo}>
-          ADD
-        </button>
-      </div>
+    <>
+      <p>enter</p>
+      <input
+        value={input}
+        name="input"
+        type="text"
+        onChange={handleChange}
+        placeholder="Enter"
+      />
+      <button onClick={addTodo}>Add</button>
 
       <ul>
-        {list.map((todo) => (
-          <li className="task" key={todo.id}>
-            {todo.todo}
-            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+        {todos.map(({ todo, id }) => (
+          <li>
+            {todo}
+            <button onClick={() => deleteTodo(id)}>delete</button>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 
-export default TodoList;
+
+
+
+
+
+
+
+
 
 
 ---------------
