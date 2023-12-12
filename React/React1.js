@@ -105,3 +105,37 @@ function TodoList() {
 export default TodoList;
 
 
+---------------
+
+  import "./styles.css";
+import React, { useState, useRef, useEffect } from "react";
+
+export default function App() {
+  const [time, setTime] = useState(2);
+  const [count, setCount] = useState(0);
+
+  const id = useRef(null);
+
+  const clear = () => clearInterval(id.current);
+
+  useEffect(() => {
+    id.current = setInterval(() => {
+      setTime((prev) => prev - 1);
+    }, 1000);
+    return clear;
+  }, [time]);
+
+  useEffect(() => {
+    if (time === 0) {
+      clear();
+    }
+  }, [time]);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      {time}
+      <button onClick={() => setTime((prev) => prev + 1)}>+</button>
+    </div>
+  );
+}
