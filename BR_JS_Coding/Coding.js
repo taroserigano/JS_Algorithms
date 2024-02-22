@@ -120,8 +120,46 @@ const removeDupe = (arr) => {
 } 
 
   ---------------------------------------
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [3, 4, 5, 6, 7];
+  
+function findIntersection(arr1, arr2) { 
+ 
+ const res = [] 
+ 
+ for(let n of arr1){
+ if(arr2.includes(n)){
+     res.push(n)
+ }
+ }
+ 
+ return res 
+    
+}
+
+  -----------------------------------------------
+function displayLikes(names) {
+  // Get the length of the array
+  const length = names.length;
+
+  // Return the appropriate string based on the length of the array
+  if (length === 0) {
+    return 'no one likes this';
+  } else if (length === 1) {
+    return `${names[0]} likes this`;
+  } else if (length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  } else if (length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else {
+    return `${names[0]}, ${names[1]} and ${length - 2} others like this`;
+  }
+}
 
 
+  -------------------------------------------
+
+    
     
 
 
