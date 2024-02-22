@@ -159,6 +159,81 @@ function displayLikes(names) {
 
   -------------------------------------------
 
+    function findMissingNumber(arr) {
+  // Calculate the sum of the first n natural numbers
+  let sum = 0;
+  for (let i = 1; i <= arr.length + 1; i++) {
+    sum += i;
+  }
+
+  // Find the sum of the elements in the array
+  let arraySum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    arraySum += arr[i];
+  }
+
+  // Subtract the sum of the elements in the array from the sum of the first n natural numbers
+  // to find the missing number
+  return sum - arraySum;
+}
+
+// Example usage:
+const arr = [1, 2, 3, 5, 6, 7];
+
+  --------------------------------------
+
+    function findMissingLetter(arr) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for (let i = 0; i < alphabet.length; i++) {
+    if (!arr.includes(alphabet[i])) {
+      return alphabet[i];
+    }
+  }
+  return undefined;
+}
+
+const arr = ["a", "b", "c", "d", "f", "g"];
+
+  ----------------------------------------------
+
+function nonRepeatingChar(str){ 
+ 
+ const map = {} 
+ 
+ for(let c of str){ 
+     map[c] = map[c]+1 || 1 
+ } 
+ 
+ for(let c of str){ 
+     if(map[c] === 1)
+     return c
+ }
+    
+    
+}
+------------------------------------------
+function format(num){ 
+    
+    const cleaned = num.replace(/\D/g, "") 
+    
+    if(cleaned.length < 10 || cleaned.length > 11){
+        return "Invalid"
+    } 
+    
+    const formated = `(${cleaned.slice(0,3)}) ${cleaned.slice(3,6)} - ${cleaned.slice(6)} `
+    
+    return formatted }
+   const phoneNumber = '1234567890';
+
+
+  -----------------------------------------
+
+    
+
+  
+
+
+    
     
     
 
