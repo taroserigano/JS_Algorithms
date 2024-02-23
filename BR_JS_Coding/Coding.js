@@ -228,6 +228,73 @@ function format(num){
 
   -----------------------------------------
 
+    function isAnagram(str1, str2) {
+  // Check if the strings are the same length. If they are not,
+  // then they cannot be anagrams.
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  // Create a map to store the character counts of the first string.
+  const charCount1 = new Map();
+  for (const char of str1) {
+      charCount1.set(char, charCount1.get(char) + 1 || 1);
+  }
+
+  // Create a map to store the character counts of the second string.
+  const charCount2 = new Map();
+  for (const char of str2) {
+      charCount2.set(char, charCount2.get(char) + 1 || 1);
+    
+  }
+
+  // Compare the two maps to see if they are equal. If they are,
+  // then the two strings are anagrams.
+  for (const [key, value] of charCount1) {
+    if (!charCount2.has(key) || charCount2.get(key) !== value) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Example usage:
+const str1 = "hello";
+const str2 = "olleh";
+
+console.log(isAnagram(str1, str2));
+
+  --------------------------------
+
+ var permute = function(nums) {
+
+  var results = [];
+  
+  var recursive = (result) => {
+
+    if (result.length === nums.length) {
+      results.push(result.slice());
+      return;
+    }
+
+    for (var i = 0; i < nums.length; i++) {
+      if (!result.includes(nums[i])) {
+        result.push(nums[i]);
+        recursive(result);
+        result.pop();
+      }
+    }
+    
+  }
+
+  recursive([]);
+  return results;
+  
+};
+
+  -----------------------------------------------------
+
     
 
   
