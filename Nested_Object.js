@@ -23,3 +23,34 @@ for (const key in nestedObject) {
     console.log(key, nestedObject[key]);
   }
 }
+
+
+function iterateNestedObject(obj) {
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === 'object' && obj[key] !== null) {
+        // If the property is an object, recursively call iterateNestedObject
+        iterateNestedObject(obj[key]);
+      } else {
+        // If the property is not an object, do something with it
+        console.log(key + ': ' + obj[key]);
+      }
+    }
+  }
+}
+
+// Example nested object
+const nestedObj = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3,
+      f: 4
+    }
+  },
+  g: 5
+};
+
+// Call the function with the nested object
+iterateNestedObject(nestedObj);
