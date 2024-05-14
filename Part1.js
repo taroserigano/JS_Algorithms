@@ -12,6 +12,68 @@ function reverse(str) {
 
 reverse("abcde")
 
+
+
+const reverse = (num) => { 
+    
+    let rev = 0;
+    let minus = false 
+    
+    if(num < 0) {
+        minus = true 
+        num = num.toString().substring(1) 
+        console.log(num)
+        num = Number(num)
+        console.log(num)
+    }
+
+    
+    while(num!=0){ 
+        
+    rev = rev *10 + num % 10 
+    
+    num = Math.floor(num/10)
+        
+        
+    }
+
+    
+    return minus ? "-" + rev  : rev
+}
+
+console.log(reverse(-133))
+
+
+
+
+
+const rev2 = (n) => { 
+    let rev
+    let revStr=""
+    if(n < 0) {
+    rev = parseInt(n.toString().substring(1))
+    console.log(rev)
+    }
+    
+    rev = rev.toString() 
+    
+    for(let i=rev.length-1;i>=0; i--){ 
+    
+        revStr += rev[i]
+        
+    
+    }
+    if(n< 0) { 
+        return (`-${revStr}`)}
+    
+    else return Number(revStr)
+    
+    
+} 
+
+
+
+
 --PALINDROME 
 
 function palid(str) { 
