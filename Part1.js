@@ -164,6 +164,37 @@ console.log(block)
 chunk([1,2,3,4,5,6,7], 3) 
 
 
+------ver 2 
+function chunk(arr, size) { 
+
+const block = [] 
+let i = 0, j= 0  
+let res = []  
+let tmp = [] 
+while (i < arr.length) { 
+
+
+while(j < size && arr[i] !== undefined){
+tmp.push(arr[i++])
+j++
+console.log(j)
+} 
+console.log(tmp)
+
+j=0
+
+res.push(tmp)
+tmp = [] 
+}
+
+console.log(res) 
+console.log("hi")
+
+} 
+
+
+chunk([1,2,3,4,5,6,7], 3) 
+
 
 
 --CAP
