@@ -1,111 +1,105 @@
-
-Basic Syntax and Operations
-Write a function to reverse a string.
-Implement a function to check if a string is a palindrome.
-Write a function to find the largest number in an array.
-Create a function that returns the factorial of a number.
-Write a function to merge two arrays and remove duplicates.
-Implement a function to count the occurrences of each character in a string.
-Write a function to find the common elements between two arrays.
-Implement a function that returns the Fibonacci sequence up to a given number.
-Write a function to flatten a nested array.
-Create a function to sum all numbers in an array.
-Control Flow and Loops
-Write a function to find the longest word in a string.
-Implement a function to find the missing number in an array of 1 to n.
-Write a function to check if two strings are anagrams.
-Create a function to rotate an array to the right by k steps.
-Write a function to find the index of the first non-repeating character in a string.
-Implement a function to remove all falsy values from an array.
-Write a function to convert a given number to binary.
-Create a function to calculate the nth prime number.
-Write a function to check if a number is prime.
-Implement a function to find the GCD (Greatest Common Divisor) of two numbers.
-Objects and Arrays
-Write a function to clone an object.
-Implement a function to merge two objects.
-Write a function to deep merge two objects.
-Create a function to get the values of an object as an array.
-Write a function to get the keys of an object as an array.
-Implement a function to check if an object is empty.
-Write a function to compare two objects for equality.
-Create a function to convert an array of objects into an object keyed by a specified property.
-Write a function to remove a property from an object.
-Implement a function to freeze an object.
-Functional Programming
-Write a function using map() to return an array of square roots of the given numbers.
-Implement a function using filter() to return all even numbers from an array.
-Write a function using reduce() to sum all numbers in an array.
-Create a function using reduce() to group objects by a property.
-Write a function using map() and reduce() to flatten an array of arrays.
-Implement a function using some() to check if an array contains at least one odd number.
-Write a function using every() to check if all elements in an array are positive.
-Create a function using find() to get the first object with a specified property value.
-Write a function using findIndex() to get the index of the first element that matches a condition.
-Implement a function using sort() to sort an array of objects by a property.
-Asynchronous JavaScript
-Write a function to fetch data from an API and log the result.
-Implement a function that uses async/await to handle promises.
-Write a function to create a delay using setTimeout.
-Create a function to fetch multiple API endpoints and return the combined result.
-Write a function to handle errors in an async function using try/catch.
-Implement a function to throttle a function call.
-Write a function to debounce a function call.
-Create a function to sequentially execute an array of async functions.
-Write a function to execute multiple async functions in parallel.
-Implement a function to retry a promise a specified number of times.
-DOM Manipulation
-Write a function to select an element by its ID and change its text content.
-Implement a function to create a new DOM element and append it to the body.
-Write a function to remove an element from the DOM.
-Create a function to add a class to all elements with a specified class name.
-Write a function to toggle a class on an element.
-Implement a function to change the style of an element.
-Write a function to get the value of an input field.
-Create a function to set the value of an input field.
-Write a function to handle a form submission and prevent the default action.
-Implement a function to clone a DOM element.
-Advanced Topics
-Write a function to implement a basic version of Promise.
-Implement a function to deep clone an object.
-Write a function to implement a custom event emitter.
-Create a function to implement a memoization technique.
-Write a function to implement a simple router for a single-page application.
-Implement a function to parse a URL and return its components.
-Write a function to implement a basic debounce mechanism.
-Create a function to implement a pub/sub pattern.
-Write a function to implement a simple state management system.
-Implement a function to create an observable object.
-Algorithms and Data Structures
-Write a function to implement a binary search algorithm.
-Implement a function to sort an array using quicksort.
-Write a function to sort an array using mergesort.
-Create a function to implement a linked list.
-Write a function to traverse a binary tree.
-Implement a function to find the height of a binary tree.
-Write a function to perform a breadth-first search on a graph.
-Create a function to perform a depth-first search on a graph.
-Write a function to check if a binary tree is balanced.
-Implement a function to detect a cycle in a graph.
-Coding Challenges
-Write a function to implement the LRU (Least Recently Used) cache.
-Implement a function to generate all permutations of a string.
-Write a function to solve the N-Queens problem.
-Create a function to implement a basic calculator that supports addition, subtraction, multiplication, and division.
-Write a function to find the longest increasing subsequence in an array.
-Implement a function to solve the Knapsack problem.
-Write a function to implement the Tower of Hanoi.
-Create a function to find the shortest path in a maze.
-Write a function to solve the Sudoku puzzle.
-Implement a function to perform matrix multiplication.
+Beginner Level
+Create a basic "Hello, World!" React component.
+Create a React component that displays a list of items passed in as props.
+Create a button that increments a counter displayed on the screen when clicked.
+Create a component that toggles the visibility of a paragraph of text when a button is clicked.
+Create a form with an input field and a submit button that displays the input value below the form when submitted.
+Create a component that changes its background color when clicked.
+Create a component that fetches data from an API and displays it in a list.
+Create a component that updates its state based on an input field.
+Create a component that uses the useEffect hook to log a message when it mounts.
+Create a component that uses the useEffect hook to fetch data from an API when it mounts.
+Intermediate Level
+Create a component that uses context to pass data down the component tree without prop drilling.
+Create a component that uses the useReducer hook to manage a counter's state.
+Create a component that displays a list of users and allows filtering the list based on user input.
+Create a component that fetches data from an API and displays a loading indicator while the data is being fetched.
+Create a component that displays a modal dialog when a button is clicked.
+Create a component that implements a simple to-do list with add and delete functionality.
+Create a component that uses useMemo to optimize the rendering of a list.
+Create a component that uses useCallback to memoize a function.
+Create a component that implements pagination for a list of items.
+Create a component that implements a basic form with validation using controlled components.
+Advanced Level
+Create a component that uses the Context API to manage a theme (light/dark) across the application.
+Create a component that uses useRef to focus an input field when a button is clicked.
+Create a component that fetches data from multiple APIs and combines the results.
+Create a component that uses React.memo to optimize performance by preventing unnecessary re-renders.
+Create a component that implements a custom hook for fetching data from an API.
+Create a component that implements a drag-and-drop list using a library like react-dnd or react-beautiful-dnd.
+Create a component that uses useEffect to implement a countdown timer.
+Create a component that uses React.lazy and Suspense for code splitting.
+Create a component that implements infinite scrolling for a list of items.
+Create a component that uses the useContext hook to consume a context value.
+Expert Level
+Create a component that implements a complex form with nested fields and validation using Formik.
+Create a component that uses the Context API and useReducer to implement a global state management solution.
+Create a component that implements server-side rendering (SSR) with Next.js.
+Create a component that uses GraphQL to fetch data from an API.
+Create a component that uses useImperativeHandle to customize the instance value that is exposed to parent components.
+Create a component that integrates with a third-party library like D3 for data visualization.
+Create a component that implements a real-time chat application using WebSockets.
+Create a component that uses React.lazy and Suspense to load different parts of the application conditionally.
+Create a component that implements optimistic UI updates.
+Create a component that uses useTransition for improved user experience in concurrent mode.
 Miscellaneous
-Write a function to debounce an input field that fetches search suggestions from an API.
-Implement a function to paginate an array of items.
-Write a function to generate a random hex color code.
-Create a function to convert a CSV string to an array of objects.
-Write a function to check if a string contains valid parentheses.
-Implement a function to generate all combinations of a given string.
-Write a function to check if two binary trees are identical.
-Create a function to serialize and deserialize a binary tree.
-Write a function to merge k sorted linked lists.
-Implement a function to find the median of two sorted arrays.
+Create a component that displays a list of items and allows reordering via drag-and-drop.
+Create a component that uses useLayoutEffect to measure the size of an element before rendering it.
+Create a component that implements a searchable dropdown menu.
+Create a component that uses a higher-order component (HOC) to enhance its functionality.
+Create a component that implements a multi-step form wizard.
+Create a component that implements a responsive layout using CSS-in-JS.
+Create a component that fetches data using axios and handles errors gracefully.
+Create a component that implements an image gallery with lazy loading.
+Create a component that uses useReducer to manage a complex state object.
+Create a component that integrates with Redux for state management.
+Create a component that uses react-router to navigate between different views.
+Create a component that displays a notification bar that auto-hides after a few seconds.
+Create a component that animates elements using react-spring.
+Create a component that implements a typeahead/autocomplete input field.
+Create a component that uses the React Profiler API to measure performance.
+Create a component that implements user authentication with JWT.
+Create a component that integrates with Firebase for real-time data updates.
+Create a component that implements dark mode using CSS variables and the Context API.
+Create a component that uses useDeferredValue for deferring updates.
+Create a component that manages a list of dynamic forms.
+Create a component that demonstrates error boundaries in React.
+Create a component that uses useMemo to optimize the rendering of a large data table.
+Create a component that uses a custom hook to handle form state and validation.
+Create a component that implements internationalization (i18n) using react-i18next.
+Create a component that fetches paginated data from an API and implements infinite scroll.
+Create a component that uses useEffect to synchronize with an external system, such as local storage or a URL query parameter.
+Create a component that implements a dynamic theme switcher using CSS variables.
+Create a component that implements a responsive grid layout using CSS Grid and styled-components.
+Create a component that integrates with a payment gateway like Stripe.
+Create a component that uses useReducer and the Context API for complex state management.
+Create a component that implements a file uploader with drag-and-drop functionality.
+Create a component that uses the IntersectionObserver API to lazy-load images.
+Create a component that manages form state using the useForm hook from react-hook-form.
+Create a component that demonstrates the use of portals in React.
+Create a component that integrates with a headless CMS like Contentful.
+Create a component that demonstrates server-side rendering with data fetching in Next.js.
+Create a component that uses the useEffect hook to debounce an input field.
+Create a component that demonstrates the use of compound components for creating flexible UI libraries.
+Create a component that implements a carousel/slider with touch and mouse support.
+Create a component that integrates with a REST API using react-query.
+Create a component that uses react-router to implement nested routes.
+Create a component that demonstrates the use of fragments to group multiple elements.
+Create a component that uses useContext and useReducer to manage a shopping cart's state.
+Create a component that implements a wizard form with progress indicators.
+Create a component that uses useState and useEffect to manage a countdown timer that pauses and resumes.
+Create a component that demonstrates how to use useImperativeHandle to expose methods to a parent component.
+Create a component that uses the Fetch API to perform a POST request and handle the response.
+Create a component that integrates with Google Maps API to display a map with markers.
+Create a component that implements a master-detail view using react-router for navigation.
+Create a component that demonstrates the use of the useReducer hook to manage complex form state with validation.
+Create a component that fetches data from an API and displays it in a paginated table with sorting and filtering.
+Create a component that uses a render prop to share logic between components.
+Create a component that implements a sticky header that remains at the top of the viewport on scroll.
+Create a component that uses useLayoutEffect to measure an element's dimensions and update state accordingly.
+Create a component that demonstrates the use of forwardRef to pass refs to child components.
+Create a component that integrates with an external authentication service like Auth0.
+Create a component that uses useDeferredValue and useTransition to optimize performance during heavy computations.
+Create a component that demonstrates the use of React portals to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+Create a component that fetches and displays user data from GitHub's API using fetch and useEffect.
+Create a component that uses the useReducer hook to implement a finite state machine.
