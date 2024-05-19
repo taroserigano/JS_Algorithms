@@ -6,19 +6,106 @@ Write a function to merge two arrays and remove duplicates.
 Implement a function to count the occurrences of each character in a string.
 Write a function to find the common elements between two arrays.
 Implement a function that returns the Fibonacci sequence up to a given number.
+  
 Write a function to flatten a nested array.
+
+const flat = (arr) => {
+    const res = []
+    
+    for(let i=0; i < arr.length; i++){ 
+    if(Array.isArray(arr[i])) {
+        res.push(...flat(arr[i]))
+    }else{
+        res.push(arr[i])
+    }
+    }
+    return res  
+} 
+
+const nestedArray = [1, [2, 3], [4, [5, 6]], 7];
+console.log(flat(nestedArray));
+
+  
 Create a function to sum all numbers in an array.
+  
 Control Flow and Loops
+
 Write a function to find the longest word in a string.
+
+  
+
+const flat = (str) => {
+    str =str.split(" ")
+    let res = ""
+    for(let s of str){ 
+    res = Math.max(res, s.length)    
+    } 
+    return res 
+    
+} 
+
+
+const nestedArray = "I am so good and cooool"
+console.log(flat(nestedArray));
+
+  
 Implement a function to find the missing number in an array of 1 to n.
-Write a function to check if two strings are anagrams.
+
+
+
+const flat = (str) => {
+    
+    let set = new Set(str) 
+    
+    for(let i=1; i < str.length; i++){
+        if(!set.has(i)) return i 
+        set.add(i)
+    }
+    return -1 
+    
+} 
+
+
+const nestedArray = [1,2,3,4,6,7]
+console.log(flat(nestedArray));
+  
+Write a function to check if two strings are anagrams.  
 Create a function to rotate an array to the right by k steps.
+
+  
+
+const flat = (arr, k) => {
+    
+    k = k% arr.length 
+    
+    res = [] 
+    let tmp = [] 
+    tmp = arr.splice(k)
+    let r = arr.unshift(...tmp) // answer 1 
+    console.log(arr)
+    res.push(...arr)           // answer 2 
+    return res
+} 
+
+
+const nestedArray = [1,2,3,4,5,6,7]
+console.log(flat(nestedArray, 3));
+
+
+
+
+
+
+  
+  
 Write a function to find the index of the first non-repeating character in a string.
 Implement a function to remove all falsy values from an array.
 Write a function to convert a given number to binary.
 Create a function to calculate the nth prime number.
 Write a function to check if a number is prime.
 Implement a function to find the GCD (Greatest Common Divisor) of two numbers.
+
+  
 Objects and Arrays
 Write a function to clone an object.
 Implement a function to merge two objects.
