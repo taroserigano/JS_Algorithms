@@ -212,22 +212,198 @@ const nestedArray = [1, 4, 9, 16, 25];
 console.log(flat(nestedArray));
   
 Write a function using reduce() to sum all numbers in an array.
+
+  
+  
 Create a function using reduce() to group objects by a property.
+
+  
+const groupBy = (arr, property) => {
+    
+    return arr.reduce((arr, curr)=> { 
+        
+        let key = curr[property] 
+        
+        if(!arr[key]) arr[key] = []
+        
+        arr[key].push(curr) 
+        
+        return arr
+        
+    }, {})
+}
+
+const data = [
+    { name: 'Alice', category: 'A' },
+    { name: 'Bob', category: 'B' },
+    { name: 'Charlie', category: 'A' },
+    { name: 'David', category: 'B' },
+    { name: 'Eve', category: 'A' }
+];
+
+const groupedData = groupBy(data, 'category');
+console.log(groupedData);
+  
 Write a function using map() and reduce() to flatten an array of arrays.
+
+  
+const flat = (arr) => {
+    
+    return arr.reduce((acc, curr) => { 
+        return acc.concat(curr)
+    }, [])
+
+}
+
+
+
+const nestedArray = [[1, 2], [3, 4], [5, 6]];
+
+const flattenedArray = flat(nestedArray);
+
+console.log(flattenedArray); // [1, 2, 3, 4, 5, 6]
+
+  
 Implement a function using some() to check if an array contains at least one odd number.
+
+  
+const flat = (arr) => {
+    
+    return arr.some((n) => n % 2 === 1)
+
+}
+  
 Write a function using every() to check if all elements in an array are positive.
+
+const flat = (arr) => {
+    
+    return arr.every((n) => n > 0)
+
+}
+  
 Create a function using find() to get the first object with a specified property value.
+
+const flat = (arr) => {
+    
+    return arr.find((n) => n === 2)
+
+}
+  
 Write a function using findIndex() to get the index of the first element that matches a condition.
+
+const flat = (arr) => {
+    
+    return arr.findIndex((n) => n === 2)
+
+}
+
 Implement a function using sort() to sort an array of objects by a property.
+
+  
 Asynchronous JavaScript
+
 Write a function to fetch data from an API and log the result.
+  // Define an asynchronous function to fetch data from an API
+async function fetchData(apiUrl) {
+    try {
+        // Make the HTTP request using fetch
+        const response = await fetch(apiUrl);
+
+        // Check if the response is ok (status code 200-299)
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Parse the response as JSON
+        const data = await response.json();
+
+        // Log the result
+        console.log(data);
+    } catch (error) {
+        // Handle and log any errors that occur during the fetch operation
+        console.error('Error fetching data:', error);
+    }
+}
+
+// Example usage: Fetch data from a sample API and log the result
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+fetchData(apiUrl);
+
 Implement a function that uses async/await to handle promises.
+
+  
 Write a function to create a delay using setTimeout.
+
+function delay(callback, milliseconds) {
+    setTimeout(callback, milliseconds);
+}
+
+// Example usage of the delay function
+function exampleUsage() {
+    console.log('Delay starts');
+
+    // Call the delay function with a callback and a delay of 2 seconds
+    delay(() => {
+        console.log('Delay ends');
+    }, 2000);
+}
+
+// Call the example usage function to see the delay in action
+exampleUsage();
+  
 Create a function to fetch multiple API endpoints and return the combined result.
+
+
+const delay = (func, time) => { 
+    setTimeout(func, time)
+} 
+
+
+function example(){ 
+    delay (()=>{
+        console.log("hi")
+    }, 1000)
+}
+example()
+  
 Write a function to handle errors in an async function using try/catch.
+
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const fetchDataWithErrorHandling = async (apiUrl) => { 
+    
+    try{ 
+        const res = await fetch(apiUrl) 
+        if(!res.ok){
+            throw new Error("Error")
+        } 
+        
+        const data = await res.json() 
+        
+        return data 
+    } catch (err){
+        console.log("url ERRO")
+        throw err 
+    }
+    
+}
+
+fetchDataWithErrorHandling(apiUrl)
+    .then(data => {
+        // Do something with the data if needed
+        console.log('Data processing completed:', data);
+    })
+    .catch(error => {
+        // Handle errors that were rethrown from the fetchDataWithErrorHandling function
+        console.error('An error occurred in the main flow:', error.message);
+    });
+
 Implement a function to throttle a function call.
+  
 Write a function to debounce a function call.
-Create a function to sequentially execute an array of async functions.
+  
+Create a function to sequentially execute an array of async functions.  
 Write a function to execute multiple async functions in parallel.
 Implement a function to retry a promise a specified number of times.
 DOM Manipulation
@@ -241,17 +417,9 @@ Write a function to get the value of an input field.
 Create a function to set the value of an input field.
 Write a function to handle a form submission and prevent the default action.
 Implement a function to clone a DOM element.
-Advanced Topics
-Write a function to implement a basic version of Promise.
-Implement a function to deep clone an object.
-Write a function to implement a custom event emitter.
-Create a function to implement a memoization technique.
-Write a function to implement a simple router for a single-page application.
-Implement a function to parse a URL and return its components.
-Write a function to implement a basic debounce mechanism.
-Create a function to implement a pub/sub pattern.
-Write a function to implement a simple state management system.
-Implement a function to create an observable object.
+
+  
+
 Algorithms and Data Structures
 Write a function to implement a binary search algorithm.
 Implement a function to sort an array using quicksort.
@@ -263,6 +431,7 @@ Write a function to perform a breadth-first search on a graph.
 Create a function to perform a depth-first search on a graph.
 Write a function to check if a binary tree is balanced.
 Implement a function to detect a cycle in a graph.
+  
 Coding Challenges
 Write a function to implement the LRU (Least Recently Used) cache.
 Implement a function to generate all permutations of a string.
@@ -274,14 +443,21 @@ Write a function to implement the Tower of Hanoi.
 Create a function to find the shortest path in a maze.
 Write a function to solve the Sudoku puzzle.
 Implement a function to perform matrix multiplication.
+  
 Miscellaneous
-Write a function to debounce an input field that fetches search suggestions from an API.
-Implement a function to paginate an array of items.
-Write a function to generate a random hex color code.
-Create a function to convert a CSV string to an array of objects.
-Write a function to check if a string contains valid parentheses.
-Implement a function to generate all combinations of a given string.
-Write a function to check if two binary trees are identical.
-Create a function to serialize and deserialize a binary tree.
-Write a function to merge k sorted linked lists.
+
 Implement a function to find the median of two sorted arrays.
+
+  const median = (a, b) => {
+    //Sort the array
+    let c = [...a, ...b].sort((a, b) => a - b);
+    
+    //Get the floor value
+    const half = c.length / 2 | 0;
+    
+    //If odd then return middle element
+    if (c.length % 2) return c[half];
+    
+    //If even then return the average of two mid elements
+    return (c[half] + c[half - 1]) / 2;
+}
