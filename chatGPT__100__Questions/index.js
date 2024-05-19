@@ -92,34 +92,125 @@ const nestedArray = [1,2,3,4,5,6,7]
 console.log(flat(nestedArray, 3));
 
 
-
-
-
-
   
+Write a function to find the index of the first non-repeating character in a string. 
+
+
+
+const flat = (arr) => {
+    let map = new Map() 
+    
+    for(let s of arr){ 
+        map[s] = map[s]+1 || 1 
+    } 
+    
+    for(let s of arr){ 
+    
+        if(map[s] === 1) return s 
+    }
+    return -1 
+} 
+
+
+const nestedArray = "aabbbcccdbo"
+console.log(flat(nestedArray, 3));
   
-Write a function to find the index of the first non-repeating character in a string.
 Implement a function to remove all falsy values from an array.
+
+  function removeFalsyValues(arr) {
+    return arr.filter(Boolean);
+}
+
+// Example usage
+const arrayWithFalsyValues = [0, 1, false, 2, '', 3, 'a', null, 'b', undefined, 'c', NaN]; 
+
+
+const filteredArray = removeFalsyValues(arrayWithFalsyValues);
+console.log(filteredArray);  // Output: [1, 2, 3, 'a', 'b', 'c']
+  
 Write a function to convert a given number to binary.
+
+  
 Create a function to calculate the nth prime number.
+  
 Write a function to check if a number is prime.
+
 Implement a function to find the GCD (Greatest Common Divisor) of two numbers.
 
   
+  
 Objects and Arrays
+
 Write a function to clone an object.
+
+  function shallowClone(obj) {
+    return { ...obj };
+}
+
+// Example usage
+const original = { a: 1, b: { c: 2 } };
+const clone = shallowClone(original);
+
+function deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+// Example usage
+const original = { a: 1, b: { c: 2 } };
+const clone = deepClone(original);
+console.log(clone);  // Output: { a: 1, b: { c: 2 } }
+  
 Implement a function to merge two objects.
+  
 Write a function to deep merge two objects.
+  
 Create a function to get the values of an object as an array.
 Write a function to get the keys of an object as an array.
 Implement a function to check if an object is empty.
 Write a function to compare two objects for equality.
 Create a function to convert an array of objects into an object keyed by a specified property.
+  
 Write a function to remove a property from an object.
+
+  function removeProperty(obj, propertyName) {
+    if (obj.hasOwnProperty(propertyName)) {
+        delete obj[propertyName];
+        return true; // Property successfully removed
+    } else {
+        return false; // Property doesn't exist in the object
+    }
+}
+
+const isRemoved = removeProperty(exampleObject, propertyToRemove);
+
+if (isRemoved) {
+    console.log(`Property "${propertyToRemove}" removed:`, exampleObject);
+} else {
+    console.log(`Property "${propertyToRemove}" doesn't exist in the object.`);
+}
+
+
 Implement a function to freeze an object.
-Functional Programming
+  
+# Functional Programming
 Write a function using map() to return an array of square roots of the given numbers.
+
+
+
+const flat = (arr) => {
+    return arr.map((n) => Math.sqrt(n))
+} 
+const nestedArray = [1, 4, 9, 16, 25];
+console.log(flat(nestedArray));
+
+  
 Implement a function using filter() to return all even numbers from an array.
+const flat = (arr) => {
+    return arr.filter((n) => n % 2 === 0)
+} 
+const nestedArray = [1, 4, 9, 16, 25];
+console.log(flat(nestedArray));
+  
 Write a function using reduce() to sum all numbers in an array.
 Create a function using reduce() to group objects by a property.
 Write a function using map() and reduce() to flatten an array of arrays.
