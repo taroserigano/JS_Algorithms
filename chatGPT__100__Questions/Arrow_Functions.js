@@ -1,15 +1,17 @@
-Questions using some
+Questions using some - if exists or not 
 Write a function hasNegativeNumbers that checks if an array contains any negative numbers.
 Write a function containsVowel that checks if a string array contains any strings starting with a vowel.
 Write a function hasLongStrings that checks if an array of strings contains any strings longer than 10 characters.
 Write a function hasAdult that checks if an array of objects representing people contains any person aged 18 or older.
 Write a function hasHighScore that checks if any scores in an array of numbers are above 90.
-Questions using every
+
+Questions using every - if all or not 
 Write a function areAllPositive that checks if all numbers in an array are positive.
 Write a function areAllShortStrings that checks if all strings in an array have fewer than 10 characters.
 Write a function areAllAdults that checks if all objects in an array representing people are aged 18 or older.
 Write a function areAllEven that checks if all numbers in an array are even.
 Write a function allStartWithA that checks if all strings in an array start with the letter 'A'.
+    
 Questions using find
 Write a function findFirstNegative that returns the first negative number in an array.
 Write a function findFirstVowelStart that returns the first string in an array that starts with a vowel.
@@ -84,27 +86,122 @@ const fun = (arr) => {
 Questions using reduce
 Write a function sumNumbers that returns the sum of all numbers in an array.
 Write a function concatenateStrings that returns a single string that is the concatenation of all strings in an array.
+
+    function concatenateStrings(arr) {
+    return arr.reduce((accumulator, currentValue) => accumulator + currentValue, '');
+}
+    
 Write a function totalAge that returns the total age of all people from an array of objects representing people.
+
+    
+const fun = (arr) => { 
+    
+    return arr.reduce((acc, total)=> acc += total.age, 0)
+ 
+}
+    
 Write a function productNumbers that returns the product of all numbers in an array.
+
+
+    
+    
 Write a function longestString that returns the longest string in an array of strings.
+
+    ];
+
+const fun = (arr) => { 
+    let max = 0  
+    return arr.reduce((acc, cur)=> {
+        if(max < cur.name.length){
+            return cur.name
+        }
+    })
+ 
+}
+    
 Questions using filter
 Write a function filterNegativeNumbers that returns a new array containing only negative numbers from an array.
 Write a function filterVowelStart that returns a new array containing only strings starting with a vowel from an array.
+
+    
+const fun = (arr) => { 
+
+    return arr.filter((n) => vow.includes(n[0].toLowerCase()))
+ 
+}
 Write a function filterLongStrings that returns a new array containing only strings longer than 10 characters from an array.
+    
 Write a function filterAdults that returns a new array containing only people aged 18 or older from an array of objects representing people.
 Write a function filterHighScores that returns a new array containing only scores above 90 from an array of numbers.
+
+    
 Combination of Methods
 Write a function sumOfEvenNumbers that uses filter and reduce to return the sum of all even numbers in an array.
-Write a function doubleAndFilterPositive that uses map and filter to return a new array with all positive numbers doubled and no negative numbers.
-Write a function capitalizeAndFilterLong that uses map and filter to return a new array with all strings capitalized and only those longer than 5 characters.
-Write a function averageAgeOfAdults that uses filter and reduce to return the average age of all people aged 18 or older from an array of objects representing people.
+    
+    
+const fun = (arr) => { 
+    
+    return arr
+        .filter(n => n % 2 === 0) 
+        .reduce((acc, curr) => acc + curr, 0)
+ 
+} 
+
+Write a function doubleAndFilterPositive that uses map and filter to return a new array with all positive numbers doubled 
+    and no negative numbers.
+
+const fun = (arr) => { 
+    
+    return arr
+        .filter(n => n > 0) 
+        .map(n => n * 2) 
+ 
+}
+        
+Write a function capitalizeAndFilterLong that uses map and filter to return a new array with all strings capitalized and 
+        only those longer than 5 characters.
+
+const fun = (arr) => { 
+    
+    return arr
+        .filter(n => n.name.length  > 3) 
+        .map(n => n.name[0].toUpperCase() + n.name.slice(1)) 
+ 
+}
+            
+Write a function averageAgeOfAdults that uses filter and reduce to return the average age of all people aged 18 or older 
+            from an array of objects representing people.
+
+                ];
+
+const fun = (arr) => { 
+    
+    let avg = arr.filter(n => n.age >= 18) 
+    
+    if(avg.length === 0)return 0 
+    
+    let total = avg.reduce((acc, cur)=> acc+ cur.age, 0) 
+    
+    return total / avg.length
+    
+
+ 
+}
+                
 Write a function productOfPositiveNumbers that uses filter and reduce to return the product of all positive numbers in an array.
+    
 Advanced Combination of Methods
-Write a function namesStartingWithA that uses map, filter, and reduce to return a single string of names (concatenated) from an array of objects representing people whose names start with 'A'.
+
+Write a function namesStartingWithA that uses map, filter, and reduce to return a single string of names (concatenated) 
+    from an array of objects representing people whose names start with 'A'.
+
+        
 Write a function sumOfSquares that uses map and reduce to return the sum of squares of all numbers in an array.
 Write a function findFirstPrime that uses find to return the first prime number in an array of numbers.
 Write a function doubleValuesAndFindSum that uses map and reduce to double all values in an array and then find their sum.
 Write a function findAndReplaceNegative that uses map and some to replace all negative numbers in an array with their absolute values.
+
+    
 Edge Case Handling
 Write a function filterOutFalsyValues that uses filter to remove all falsy values from an array.
 Write a function countOccurrences that uses reduce to count the occurrences of each element in an array and returns an object with element counts.
