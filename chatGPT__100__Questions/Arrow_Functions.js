@@ -195,20 +195,71 @@ Advanced Combination of Methods
 Write a function namesStartingWithA that uses map, filter, and reduce to return a single string of names (concatenated) 
     from an array of objects representing people whose names start with 'A'.
 
+        const fun = (arr) => { 
+    
+    return arr
+        .filter(p => p.name.startsWith('A'))
+        .reduce((acc, cur)=> acc + cur.name, '') || 0 
         
-Write a function sumOfSquares that uses map and reduce to return the sum of squares of all numbers in an array.
+    return  "None"    
+
+}
+
+
+const fun = (arr) => { 
+    
+    return arr
+        .filter(p => p.name.startsWith('A'))
+        .map(p => p.name) 
+        .reduce((acc, cur)=> acc + cur, '') || 0 
+        
+    return  "None"    
+
+}
+
+
+Write a function sumOfSquares that uses map and reduce to return the sum of squares of all numbers in an array. 
+const fun = (arr) => { 
+    
+    return arr
+        .map((n) => n*n) 
+        .reduce((acc, curr)=>acc+curr, 0)
+
+}
+    
 Write a function findFirstPrime that uses find to return the first prime number in an array of numbers.
+    
 Write a function doubleValuesAndFindSum that uses map and reduce to double all values in an array and then find their sum.
+const fun = (arr) => { 
+    
+    return arr
+        .map((n) => n*2) 
+        .reduce((acc, curr)=>acc+curr, 0)
+
+}
+    
 Write a function findAndReplaceNegative that uses map and some to replace all negative numbers in an array with their absolute values.
 
     
+    
+const fun = (numbers) => {
+
+    return numbers.map(number => (number < 0 ? Math.abs(number) : number));
+  
+  return numbers;
+};
+
+
 Edge Case Handling
 Write a function filterOutFalsyValues that uses filter to remove all falsy values from an array.
 Write a function countOccurrences that uses reduce to count the occurrences of each element in an array and returns an object with element counts.
 Write a function flattenArray that uses reduce to flatten a nested array into a single-level array.
 Write a function groupBy that uses reduce to group an array of objects by a specified property.
 Write a function partitionByParity that uses reduce to partition an array of numbers into two arrays: one with even numbers and one with odd numbers.
-Performance and Optimization
+
+    
+    
+    Performance and Optimization
 Write a function findMaxUsingReduce that uses reduce to find the maximum number in an array.
 Write a function filterAndSort that uses filter and sort to filter out negative numbers and then sort the remaining numbers in ascending order.
 Write a function uniqueValues that uses reduce to return an array of unique values from an array with duplicates.
