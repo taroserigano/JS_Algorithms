@@ -13,21 +13,74 @@ Write a function allStartWithA that checks if all strings in an array start with
 Questions using find
 Write a function findFirstNegative that returns the first negative number in an array.
 Write a function findFirstVowelStart that returns the first string in an array that starts with a vowel.
+
+const fun = (arr) => { 
+    
+    return arr.find((n) => {
+    
+    console.log(n[0])
+    
+         return vow.includes(n[0].toLowerCase())
+    }
+    )
+}
+  
 Write a function findFirstLongString that returns the first string longer than 10 characters in an array.
+
+  
+const fun = (arr) => { 
+    
+    return arr.find((n) => n.length > 1)
+ 
+}
 Write a function findFirstAdult that returns the first person aged 18 or older from an array of objects representing people.
+
 Write a function findFirstHighScore that returns the first score above 90 in an array of numbers.
+
+
+  
 Questions using findIndex
 Write a function findIndexFirstNegative that returns the index of the first negative number in an array.
 Write a function findIndexFirstVowelStart that returns the index of the first string in an array that starts with a vowel.
 Write a function findIndexFirstLongString that returns the index of the first string longer than 10 characters in an array.
 Write a function findIndexFirstAdult that returns the index of the first person aged 18 or older in an array of objects representing people.
 Write a function findIndexFirstHighScore that returns the index of the first score above 90 in an array of numbers.
+  
 Questions using map
 Write a function doubleNumbers that returns a new array with all numbers in an array doubled.
+
+  const fun = (arr) => { 
+    
+    return arr.map((n) => n*2)
+ 
+}
 Write a function uppercaseStrings that returns a new array with all strings in an array converted to uppercase.
-Write a function extractAges that returns a new array containing the ages of all people from an array of objects representing people.
+
+  const fun = (arr) => { 
+    
+    return arr.map((n) => n[0].toUpperCase() + n.slice(1))
+ 
+}
+Write a function extractAges that returns a new array containing the ages of all people from an array of 
+  objects representing people.
+    
+const fun = (arr) => { 
+    
+    return arr.map((n) => n.age )
+ 
+}
+    
 Write a function squareNumbers that returns a new array with all numbers in an array squared.
+
+  
 Write a function prependHello that returns a new array with "Hello, " prepended to each string in an array.
+
+const fun = (arr) => { 
+    
+    return arr.map((n) => "Hello, " + n) 
+ 
+} 
+  
 Questions using reduce
 Write a function sumNumbers that returns the sum of all numbers in an array.
 Write a function concatenateStrings that returns a single string that is the concatenation of all strings in an array.
