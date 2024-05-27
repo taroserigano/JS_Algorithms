@@ -253,10 +253,109 @@ const fun = (numbers) => {
 Edge Case Handling
 Write a function filterOutFalsyValues that uses filter to remove all falsy values from an array.
 Write a function countOccurrences that uses reduce to count the occurrences of each element in an array and returns an object with element counts.
+
+    
+const chars = ['a', 'b', 'a', 'c', 'b', 'a', 'd', 'b'];
+
+const fun = (arr) => { 
+  return arr.reduce((acc, cur) => {
+      acc[cur] = acc[cur]+1 || 1  
+      return acc
+  }, {})  
+} 
+
+
+
+
+console.log(fun(chars))
+
+
 Write a function flattenArray that uses reduce to flatten a nested array into a single-level array.
+
+    
+const chars = ['a', 'b', 'a', 'c', 'b', 'a', 'd', 'b'];
+const nested = [1, [2, 3], [4, [5, 6]], 7, [8, [9, [10]]]];
+
+
+
+const flat = (arr) => { 
+
+    return arr.reduce((acc, cur) => { 
+        if(Array.isArray(cur)){
+            acc = acc.concat(flat(cur))
+        } else { 
+            acc.push(cur)
+        } 
+        return acc 
+    }, []) 
+    
+}
+console.log(flat(nested))
+   
 Write a function groupBy that uses reduce to group an array of objects by a specified property.
+
+const nested = [1, [2, 3], [4, [5, 6]], 7, [8, [9, [10]]]];
+
+1:
+
+const nested = [1, [2, 3], [4, [5, 6]], 7, [8, [9, [10]]]];
+const data = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 30 },
+  { name: 'David', age: 30 },
+  { name: 'Eve', age: 25 }
+];
+
+const fun = (array, property) => {
+
+     return array.reduce((acc, obj) => {
+    const key = obj[property];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, {});
+}
+
+console.log(fun(data, 'age'));
+
+
+2:
+const nested = [1, [2, 3], [4, [5, 6]], 7, [8, [9, [10]]]];
+const data = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 30 },
+  { name: 'David', age: 30 },
+  { name: 'Eve', age: 25 }
+];
+
+const fun = (arr, property) => {
+    let obj = {} 
+    for(let a of arr){ 
+    
+        let key = a[property]
+        console.log(key)
+        
+        if(!obj[key]) obj[key] = [] 
+        
+        obj[key].push(a)
+         
+    }
+    return obj 
+
+}
+
+console.log(fun(data, 'age'));
+
+
+    
 Write a function partitionByParity that uses reduce to partition an array of numbers into two arrays: one with even numbers and one with odd numbers.
 
+
+    
     
     
     Performance and Optimization
