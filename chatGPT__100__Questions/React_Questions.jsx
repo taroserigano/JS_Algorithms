@@ -3,14 +3,17 @@ Create a basic "Hello, World!" React component.
 Create a React component that displays a list of items passed in as props.
 Create a button that increments a counter displayed on the screen when clicked.
 Create a component that toggles the visibility of a paragraph of text when a button is clicked.
-Create a form with an input field and a submit button that displays the input value below the form when submitted.
+Create a form with an input field and a submit button that displays the input value below the form 
+  when submitted.
 Create a component that changes its background color when clicked.
 Create a component that fetches data from an API and displays it in a list.
 Create a component that updates its state based on an input field.
 Create a component that uses the useEffect hook to log a message when it mounts.
 Create a component that uses the useEffect hook to fetch data from an API when it mounts.
+    
 Intermediate Level
 Create a component that uses context to pass data down the component tree without prop drilling.
+  
 Create a component that uses the useReducer hook to manage a counter's state.
 Create a component that displays a list of users and allows filtering the list based on user input.
 Create a component that fetches data from an API and displays a loading indicator while the data is being fetched.
@@ -20,17 +23,21 @@ Create a component that uses useMemo to optimize the rendering of a list.
 Create a component that uses useCallback to memoize a function.
 Create a component that implements pagination for a list of items.
 Create a component that implements a basic form with validation using controlled components.
+
+  
 Advanced Level
 Create a component that uses the Context API to manage a theme (light/dark) across the application.
 Create a component that uses useRef to focus an input field when a button is clicked.
 Create a component that fetches data from multiple APIs and combines the results.
 Create a component that uses React.memo to optimize performance by preventing unnecessary re-renders.
 Create a component that implements a custom hook for fetching data from an API.
-Create a component that implements a drag-and-drop list using a library like react-dnd or react-beautiful-dnd.
+Create a component that implements a drag-and-drop list using a library like react-dnd or 
+  react-beautiful-dnd.
 Create a component that uses useEffect to implement a countdown timer.
 Create a component that uses React.lazy and Suspense for code splitting.
 Create a component that implements infinite scrolling for a list of items.
 Create a component that uses the useContext hook to consume a context value.
+  
 Expert Level
 Create a component that implements a complex form with nested fields and validation using Formik.
 Create a component that uses the Context API and useReducer to implement a global state management solution.
@@ -42,6 +49,7 @@ Create a component that implements a real-time chat application using WebSockets
 Create a component that uses React.lazy and Suspense to load different parts of the application conditionally.
 Create a component that implements optimistic UI updates.
 Create a component that uses useTransition for improved user experience in concurrent mode.
+  
 Miscellaneous
 Create a component that displays a list of items and allows reordering via drag-and-drop.
 Create a component that uses useLayoutEffect to measure the size of an element before rendering it.
