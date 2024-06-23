@@ -42,7 +42,7 @@ for (const key in nestedObject) {
       if (typeof obj[key] === "object") {
         iterateNestedObject(obj[key]);
       } else {
-        console.log(key + ": " + obj[key]);
+        console.log(key, " ",  obj[key]);
       }
     }
   }
