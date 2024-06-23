@@ -36,20 +36,16 @@ for (const key in nestedObject) {
   }
 }
 
-
-function iterateNestedObject(obj) {
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        // If the property is an object, recursively call iterateNestedObject
+  // rewrite iterateNestedObject without using hasOwnProperty
+  function iterateNestedObject(obj) {
+    for (const key in obj) {
+      if (typeof obj[key] === "object") {
         iterateNestedObject(obj[key]);
       } else {
-        // If the property is not an object, do something with it
-        console.log(key + ': ' + obj[key]);
+        console.log(key + ": " + obj[key]);
       }
     }
   }
-}
 
 // Example nested object
 const nestedObj = {
