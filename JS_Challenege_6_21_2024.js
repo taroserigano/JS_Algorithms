@@ -43,22 +43,21 @@ console.log(arrayIntersection(array1, array2)); // Output: [3, 4]
 console.log(arrayUnion(array1, array2)); // Output: [1, 2, 3, 4, 5, 6]
 
 // 5. Reverse a number using string manipulation
-const reverseNumber = (num) => {
-    return parseInt(num.toString().split('').reverse().join('')) * Math.sign(num);
-};
+  
+  const reverseNumber = (num) => {
+    let res = 0;
+    let n = Math.abs(num) 
 
-const rev = (num) => { 
+    while (n > 0) {
+      res = res * 10 + (n % 10);
+      n = Math.floor(n / 10);
+    }
 
-let rev = 0, rem = 0 
+    return res * Math.sign(num)
+  };
 
-while(num > 0) { 
-  rem = rem % 10 
-  rev = rev*10 + rem 
-  num = parseInt(num/10)
-} 
-return rev 
-
-}
+   console.log(reverseNumber(12345)); // Output: 54321
+   console.log(reverseNumber(-12345)); // Output: -54321
 
 // Practical example
 console.log(reverseNumber(12345)); // Output: 54321
