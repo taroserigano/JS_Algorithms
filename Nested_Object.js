@@ -10,6 +10,18 @@ const nestedObject = {
   }
 };
 
+  const logNestedObject = (obj) => {
+    for (const key in obj) {
+      if (typeof obj[key] === "object") {
+        logNestedObject(obj[key]);
+      } else {
+        console.log(key, obj[key]);
+      }
+    }
+  };
+
+  logNestedObject(nestedObject);
+
 // Iterate over the nested object using a for...in loop
 for (const key in nestedObject) {
   // Check if the value of the key is an object
