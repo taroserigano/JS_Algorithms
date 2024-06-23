@@ -876,15 +876,252 @@ Write a function sumNestedArray that uses reduce to sum all numbers in a nested 
 Write a function countLeafNodes that uses reduce to count the number of leaf nodes in a nested object structure.
 Write a function findDeepestNode that uses reduce to find the deepest node in a nested object structure.
 Write a function mergeDeep that uses reduce to merge deeply nested objects.
+
+// 1. Recursively flatten a deeply nested array using reduce
+const flattenDeep = (arr) => {
+    return arr.reduce((flat, item) => {
+        return flat.concat(Array.isArray(item) ? flattenDeep(item) : item);
+    }, []);
+};
+
+// Practical example
+const nestedArray = [1, [2, [3, [4, 5]]], 6];
+console.log(flattenDeep(nestedArray)); // Output: [1, 2, 3, 4, 5, 6]
+
+// 2. Sum all numbers in a nested array using reduce
+const sumNestedArray = (arr) => {
+    return arr.reduce((sum, item) => {
+        return sum + (Array.isArray(item) ? sumNestedArray(item) : item);
+    }, 0);
+};
+
+// Practical example
+const nestedArraySum = [1, [2, [3, [4, 5]]], 6];
+console.log(sumNestedArray(nestedArraySum)); // Output: 21
+
+// 3. Count the number of leaf nodes in a nested object structure using reduce
+const countLeafNodes = (obj) => {
+    const isObject = (val) => val && typeof val === 'object' && !Array.isArray(val);
+    
+    return Object.keys(obj).reduce((count, key) => {
+        if (isObject(obj[key])) {
+            return count + countLeafNodes(obj[key]);
+        } else {
+            return count + 1;
+        }
+    }, 0);
+};
+
+// Practical example
+const nestedObject = {
+    a: 1,
+    b: { c: 2, d: { e: 3, f: 4 }},
+    g: { h: 5 }
+};
+console.log(countLeafNodes(nestedObject)); // Output: 5
+
+// 4. Find the deepest node in a nested object structure using reduce
+const findDeepestNode = (obj) => {
+    const isObject = (val) => val && typeof val === 'object' && !Array.isArray(val);
+    
+    const traverse = (obj, depth) => {
+        return Object.keys(obj).reduce((deepest, key) => {
+            if (isObject(obj[key])) {
+                const deep = traverse(obj[key], depth + 1);
+                return deep.depth > deepest.depth ? deep : deepest;
+            } else {
+                return depth > deepest.depth ? { value: obj[key], depth } : deepest;
+            }
+        }, { value: null, depth: 0 });
+    };
+
+    return traverse(obj, 1).value;
+};
+
+// Practical example
+const nestedObjectForDeepest = {
+    a: 1,
+    b: { c: 2, d: { e: 3, f: 4 }},
+    g: { h: 5 }
+};
+console.log(findDeepestNode(nestedObjectForDeepest)); // Output: 3 or 4 or 5 depending on the deepest path considered
+
+// 5. Merge deeply nested objects using reduce
+const mergeDeep = (...objects) => {
+    const isObject = (obj) => obj && typeof obj === 'object';
+
+    return objects.reduce((acc, obj) => {
+        Object.keys(obj).forEach(key => {
+            if (isObject(obj[key]) && isObject(acc[key])) {
+                acc[key] = mergeDeep(acc[key], obj[key]);
+            } else {
+                acc[key] = obj[key];
+            }
+        });
+        return acc;
+    }, {});
+};
+
+// Practical example
+const obj1 = { a: 1, b: { c: 2, d: 3 } };
+const obj2 = { b: { c: 4, e: 5 }, f: 6 };
+console.log(mergeDeep(obj1, obj2)); // Output: { a: 1, b: { c: 4, d: 3, e: 5 }, f: 6 }
+
+    
 Efficiency and Optimization
 Write a function filterAndPaginate that uses filter and slice to filter an array based on a condition and paginate the results.
 Write a function findMedian that uses sort and array indexing to find the median of an array of numbers.
 Write a function filterAndMapLargeArray that uses filter and map to efficiently handle large arrays by breaking them into chunks.
 Write a function memoizedSum that uses reduce to sum an array and caches the result for the same array to avoid redundant calculations.
 Write a function uniqueValuesEfficient that uses Set and reduce to efficiently find unique values in a large array.
+
+    // 1. Filter an array based on a condition and paginate the results
+const filterAndPaginate = (arr, condition, page, pageSize) => {
+    const filtered = arr.filter(condition);
+    return filtered.slice((page - 1) * pageSize, page * pageSize);
+};
+
+// Practical example
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const condition = (num) => num > 5;
+console.log(filterAndPaginate(data, condition, 1, 3)); // Output: [6, 7, 8]
+console.log(filterAndPaginate(data, condition, 2, 3)); // Output: [9, 10]
+
+// 2. Find the median of an array of numbers using sort and array indexing
+const findMedian = (arr) => {
+    const sorted = arr.slice().sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+};
+
+// Practical example
+const numbers = [1, 3, 3, 6, 7, 8, 9];
+console.log(findMedian(numbers)); // Output: 6
+
+// 3. Efficiently handle large arrays by breaking them into chunks, using filter and map
+const filterAndMapLargeArray = (arr, filterCondition, mapFn, chunkSize = 1000) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+        const chunk = arr.slice(i, i + chunkSize);
+        result.push(...chunk.filter(filterCondition).map(mapFn));
+    }
+    return result;
+};
+
+// Practical example
+const largeArray = Array.from({ length: 10000 }, (_, i) => i + 1);
+const filterCondition = (num) => num % 2 === 0;
+const mapFn = (num) => num * 2;
+console.log(filterAndMapLargeArray(largeArray, filterCondition, mapFn, 1000)); 
+// Output: [4, 8, 12, ..., 19996, 20000]
+
+// 4. Sum an array and cache the result for the same array to avoid redundant calculations
+const memoizedSum = () => {
+    const cache = new Map();
+    return (arr) => {
+        const key = arr.toString();
+        if (cache.has(key)) {
+            return cache.get(key);
+        }
+        const sum = arr.reduce((total, num) => total + num, 0);
+        cache.set(key, sum);
+        return sum;
+    };
+};
+
+// Practical example
+const sumArray = memoizedSum();
+console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15
+console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15 (cached result)
+console.log(sumArray([10, 20, 30])); // Output: 60
+
+// 5. Efficiently find unique values in a large array using Set and reduce
+const uniqueValuesEfficient = (arr) => {
+    return arr.reduce((uniqueSet, item) => {
+        uniqueSet.add(item);
+        return uniqueSet;
+    }, new Set());
+};
+
+// Practical example
+const largeArrayWithDuplicates = Array.from({ length: 10000 }, (_, i) => i % 100);
+console.log([...uniqueValuesEfficient(largeArrayWithDuplicates)]); 
+// Output: [0, 1, 2, ..., 99]
+
 Advanced Challenges
 Write a function combinations that uses reduce to generate all combinations of elements in an array.
 Write a function permutations that uses reduce to generate all permutations of elements in an array.
 Write a function powerSet that uses reduce to generate the power set of an array.
 Write a function partition that uses reduce to partition an array based on a predicate function.
 Write a function zipArrays that uses reduce to combine two arrays into an array of tuples.
+
+// 1. Generate all combinations of elements in an array using reduce
+const combinations = (arr) => {
+    return arr.reduce((acc, item) => {
+        return acc.concat(acc.map(subset => [...subset, item]));
+    }, [[]]);
+};
+
+// Practical example
+const elements = [1, 2, 3];
+console.log(combinations(elements));
+// Output: [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
+// 2. Generate all permutations of elements in an array using reduce
+const permutations = (arr) => {
+    if (arr.length === 0) return [[]];
+    return arr.reduce((acc, item, i) => {
+        const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        const perms = permutations(rest).map(p => [item, ...p]);
+        return acc.concat(perms);
+    }, []);
+};
+
+// Practical example
+const elementsPerm = [1, 2, 3];
+console.log(permutations(elementsPerm));
+// Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+
+// 3. Generate the power set of an array using reduce
+const powerSet = (arr) => {
+    return arr.reduce((acc, item) => {
+        return acc.concat(acc.map(subset => [...subset, item]));
+    }, [[]]);
+};
+
+// Practical example
+const elementsPowerSet = [1, 2, 3];
+console.log(powerSet(elementsPowerSet));
+// Output: [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
+// 4. Partition an array based on a predicate function using reduce
+const partition = (arr, predicate) => {
+    return arr.reduce(
+        ([pass, fail], elem) => predicate(elem) ? [[...pass, elem], fail] : [pass, [...fail, elem]],
+        [[], []]
+    );
+};
+
+// Practical example
+const numbersPartition = [1, 2, 3, 4, 5, 6];
+const isEven = (num) => num % 2 === 0;
+console.log(partition(numbersPartition, isEven));
+// Output: [[2, 4, 6], [1, 3, 5]]
+
+// 5. Combine two arrays into an array of tuples using reduce
+const zipArrays = (arr1, arr2) => {
+    return arr1.reduce((acc, item, i) => {
+        if (i < arr2.length) {
+            acc.push([item, arr2[i]]);
+        }
+        return acc;
+    }, []);
+};
+
+// Practical example
+const array1 = [1, 2, 3];
+const array2 = ['a', 'b', 'c'];
+console.log(zipArrays(array1, array2));
+// Output: [[1, 'a'], [2, 'b'], [3, 'c']]
+
+    
