@@ -1,9 +1,10 @@
-let obj1 = { 
-address = "LA", 
-getAddress: () => { 
-  console.log(this.LA) 
-}
+const myObject = {
+  name: 'John Doe',
+  age: 30,
+  greet: function (){ 
+      return this.name + this.age
+  }
+};
 
-} 
-
-
+// Using the object
+console.log(myObject.greet())
